@@ -1,22 +1,25 @@
-.PHONY: examples
+.PHONY: all
 
 CC = xelatex
-EXAMPLES_DIR = examples
-RESUME_DIR = examples/resume
-CV_DIR = examples/cv
+RESUME_DIR = resume
+CV_DIR = cv
 RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
+DEPS = enumitem xifthen ifmtarg sourcesanspro tcolorbox environ trimspaces lm-math
 
-examples: $(foreach x, coverletter cv resume, $x.pdf)
+all: $(foreach x, coverletter cv resume, $x.pdf)
 
-resume.pdf: $(EXAMPLES_DIR)/resume.tex $(RESUME_SRCS)
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+resume.pdf: resume.tex $(RESUME_SRCS)
+	$(CC) $<
 
-cv.pdf: $(EXAMPLES_DIR)/cv.tex $(CV_SRCS)
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+cv.pdf: cv.tex $(CV_SRCS)
+	$(CC) $<
 
-coverletter.pdf: $(EXAMPLES_DIR)/coverletter.tex
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+coverletter.pdf: coverletter.tex
+	$(CC) $<
+
+install_deps:
+	sudo tlmgr update --self && sudo tlmgr install $(DEPS)
 
 clean:
-	rm -rf $(EXAMPLES_DIR)/*.pdf
+	rm -rf *.pdf
