@@ -21,5 +21,8 @@ coverletter.pdf: coverletter.tex
 install_deps:
 	sudo tlmgr update --self && sudo tlmgr install $(DEPS)
 
+FontAwesome.otf:
+	curl -O https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/fonts/FontAwesome.otf
+
 clean:
 	rm -rf *.pdf
