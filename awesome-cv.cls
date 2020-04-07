@@ -74,6 +74,7 @@
 \RequirePackage{unicode-math}
 % Needed to use icons from font-awesome
 % (https://github.com/posquit0/latex-fontawesome)
+% Required: fontspec package and [FontAwesome.otf](https://github.com/FortAwesome/Font-Awesome/blob/v4.7.0/fonts/FontAwesome.otf)
 \RequirePackage{fontawesome}
 \RequirePackage[default,opentype]{sourcesanspro}
 % Needed for the photo ID
