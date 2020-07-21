@@ -12,6 +12,9 @@
 *.dvi
 *-converted-to.*
 
+## Output files:
+*.pdf
+
 ### Editor ###
 ## Vim & Emacs temp files:
 .*sw[op]
@@ -21,3 +24,5 @@
 ## Mac OS X metadata files:
 *.DS_Store
 
+### Environments ###
+.env
